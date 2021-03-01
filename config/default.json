@@ -1,4 +1,5 @@
 {
     "port": 8080,
-    "mongoUrl": "mongodb+srv://Alexey:Al111158@cluster0.xmnzl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "mongoUrl": "mongodb+srv://Alexey:Al111158@cluster0.xmnzl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "apiUrl": "http://localhost:8080/api/movies/"
 }

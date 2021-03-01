@@ -1,14 +1,29 @@
-import React,{useState} from 'react';
-import axios from 'axios';
-const res = axios.get("http://localhost:8080/api/movies/").then((data) => {
-  console.log(data.data);
-  return data.data;
-})
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import Loader from "./components/loader";
+import ErrorMessage from "./components/errorBoundry";
+import Movies from "./components/movies";
+
+import { getMovies, postMovies } from "./actions";
+
 function App() {
-  const [data, setData] = useState(res);
-  console.log(data);
+  const [movie, setMovie] = useState("");
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.movieReducer.loading);
+  const error = useSelector((state) => state.movieReducer.error);
+
+  const getMovie = (event) => {
+    event.preventDefault();
+    dispatch(getMovies());
+    setMovie("");
+  };
+
   return (
-    <></>
+    <main className="page__main">
+      <Loader />
+      <ErrorMessage />
+      <Movies />
+    </main>
   );
 }
 
